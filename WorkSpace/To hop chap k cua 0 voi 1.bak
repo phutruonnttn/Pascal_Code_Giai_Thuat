@@ -1,0 +1,35 @@
+{$mode objfpc}
+Program chinh_hop_chap_k;
+uses crt;
+var i,m,n: integer;
+    x: array[1..1000] of integer;
+
+procedure nhap;
+begin
+    write('Nhap n,m: '); readln(n,m);
+end;
+
+procedure ghinhan;
+var i: integer;
+begin
+    for i:=1 to m do write(x[i],' ');
+    writeln;
+end;
+
+procedure tryy(i: integer);
+var j:integer;
+begin
+    for j:=1 to n do
+     begin
+         x[i]:=j;
+         if i=m then ghinhan
+          else tryy(i+1);
+     end;
+end;
+
+begin
+    clrscr;
+    nhap;
+    tryy(1);
+    readln
+end.

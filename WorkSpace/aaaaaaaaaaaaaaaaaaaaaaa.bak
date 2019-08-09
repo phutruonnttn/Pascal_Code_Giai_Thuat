@@ -1,0 +1,4 @@
+var b:byte;
+begin
+   if  (20.09-trunc(20.09))<>0 then writeln('DD')
+end.

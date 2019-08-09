@@ -1,0 +1,57 @@
+{$mode objfpc}
+Program Bieu_dien_n_giai_thua;
+uses crt;
+const fi='Analyse.inp'; fo='Analysa.out';
+var f1,f2: text;
+    n,i,j: integer;
+    prime,a: array[1..100000] of integer;
+
+function SoMu(a,n: longint): integer;
+var b,s: integer;
+begin
+    b:=a; s:=0;
+    repeat
+     s:=s+trunc(n/b);
+     b:=b*a;
+    until trunc(n/b)=0;
+    SoMu:=s;
+end;
+
+Procedure Timsnt;
+var i,j: longint;
+begin
+   fillchar(prime,sizeof(prime),0);
+   prime[1]:=1 ;
+   for i:=2 to trunc(sqrt(n)) do
+    if prime[i]=0 then
+     begin
+        j:=i*i;
+        while j<=n do
+         begin
+             prime[j]:=1;
+             j:=j+i;
+         end;
+     end;
+end;
+
+begin
+    clrscr;
+    assign(f1,fi); reset(f1);
+    assign(f2,fo); rewrite(f2);
+    while not eof(f1) do
+     begin
+         readln(f1,n);
+         Timsnt;
+         j:=0;
+         for i:=2 to n do
+          if prime[i]=0 then
+           begin
+             inc(j);
+             a[j]:= somu(i,n);
+           end;
+         for i:=1 to j do write(f2,a[i],' ');
+         writeln(f2);
+     end;
+    close(f1);
+    close(f2);
+end.

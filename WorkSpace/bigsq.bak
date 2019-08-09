@@ -1,0 +1,8 @@
+const fi='';
+      fo='';
+
+begin
+    assign(output,fo); rewrite(ouptut);
+    writeln(0);
+    close(output);
+end.

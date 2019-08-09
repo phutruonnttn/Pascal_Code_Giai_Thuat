@@ -1,0 +1,9 @@
+uses crt;
+var s1,s2,s3: string ;
+
+begin
+    clrscr;
+    write('Nhap s1,s2,s3: '); readln(s1,s2,s3);
+    writeln(concat(s1,s2,s3));
+    readln
+end.
